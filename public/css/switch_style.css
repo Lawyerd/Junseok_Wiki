@@ -1,0 +1,86 @@
+
+
+.switches[data-theme=dark] {
+  --primary-light: hsl(160, 79%, 46%);
+  --primary-dark: hsl(160, 79%, 16%);
+  --ripple: hsla(160, 79%, 46%, 0.1);
+  --focus: hsl(160, 69%, 46%);
+}
+
+
+.switch:not(:last-of-type) {
+  margin-right: 4rem;
+}
+.switch__label {
+  position: relative;
+  cursor: pointer;
+}
+.switch__input {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.switch__input:focus + .switch__design {
+  box-shadow: 0 0 0 0.1rem var(--global-background), 0 0 0 0.2rem var(--focus);
+}
+.switch {
+  --width: 2.5rem;
+  --height: 1.6rem;
+  --background: hsl(0, 0%, 30%);
+  --checked-background: var(--primary-dark);
+  --thumb-size: 1.2rem;
+  --thumb-ripple-color: var(--ripple);
+  --thumb-background: hsl(0, 0%, 65%);
+  --checked-thumb-background: var(--primary-light);
+  --thumb-space-between-edges: 0.3rem;
+  --thumb-out: var(--thumb-space-between-edges);
+}
+
+.switch--2 {
+  --background: hsla(0, 0%, 20%);
+}
+
+.switch__design {
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  border: var(--border);
+  border-radius: 100rem;
+  background: var(--background);
+  position: relative;
+  transition: 0.2s, box-shadow 0s;
+}
+.switch__design::before {
+  content: "";
+  position: absolute;
+  left: var(--thumb-out);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 100rem;
+  background: var(--thumb-background);
+  transition: inherit;
+}
+
+.switch__input:checked + .switch__design {
+  border-color: transparent;
+  background: var(--checked-background);
+}
+.switch__input:checked + .switch__design::before {
+  left: calc(100% - (var(--thumb-size) + var(--thumb-out)));
+  background: var(--checked-thumb-background);
+}
+.switch--6 .switch__input:checked + .switch__design::before {
+  left: calc(100% - var(--thumb-out));
+  transform: translate(-100%, -50%);
+}
+.switch--5 .switch__design:hover::before, .switch--7 .switch__design:hover::before, .switch--5 .switch__input:focus + .switch__design::before, .switch--7 .switch__input:focus + .switch__design::before {
+  box-shadow: 0 0 0 0.9rem var(--thumb-ripple-color);
+}
+.switch--6 .switch__design:active::before {
+  width: calc(var(--thumb-size) + 0.4rem);
+}

@@ -4,33 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="colors.js"></script>
+    <script src="lib/colors.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/switch_style.css">
+    <link rel="stylesheet" href="css/list_style.css">
     <title>JUNSEOK WIKI</title>
 </head>
 
 <body>
-    <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+    <div class="switch switch--2 switches" data-theme="dark">
+        <label class=" switch__label" width="400">
+            <input type="checkbox" class="switch__input" value="day" onclick="nightDayHandler(this);">
+            <span class=" switch__design"></span>
+        </label>
+    </div>
+
     <h1>이준석에 대한 백과사전</h1>
-    <img src="profile.jpg" width="400" />
+    <img src="src/profile.jpg" width="400" />
     <p>
         <div class="menu-toc" id="toc"></div>
-        <ol>
-            <li><a href="1.html">개요</a></li>
-            <li id="#2">생애
-                <ul>
-                    <li>유아기</li>
-                    <li>초등학교 시절</li>
-                    <li>중학교 시절</li>
-                    <li>고등학교 시절</li>
-                    <li>대학교 입학</li>
-                    <li>군복무 중</li>
-                    <li>복학 이후</li>
-                </ul>
+        <ol class="rounded-list">
+            <li><a href="개요.html">개요</a></li>
+            <li id="#2"><a href="">생애</a>
+                <ol>
+                    <li><a href="">유아기</a></li>
+                    <li><a href="">초등학교 시절</a></li>
+                    <li><a href="">중학교 시절</a></li>
+                    <li><a href="">고등학교 시절</a></li>
+                    <li><a href="">대학교 입학</a></li>
+                    <li><a href="">군복무 중</a></li>
+                    <li><a href="">복학 이후</a></li>
+                </ol>
             </li>
-            <li id="#3">신념</li>
-            <li id="#4">좋아하는 것</li>
-            <li id="#5">싫어하는 것</li>
+            <li id="#3"><a href="">신념</a></li>
+            <li id="#4"><a href="">좋아하는 것</a></li>
+            <li id="#5"><a href="">싫어하는 것</a></li>
         </ol>
     </p>
 
